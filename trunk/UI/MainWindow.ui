@@ -1,0 +1,169 @@
+<ui version="4.0" >
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>469</width>
+    <height>375</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+    <horstretch>100</horstretch>
+    <verstretch>100</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle" >
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QHBoxLayout" name="horizontalLayout" >
+    <item>
+     <widget class="MyQGraphicsView" name="graph" >
+      <property name="sizePolicy" >
+       <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>469</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPlik" >
+    <property name="title" >
+     <string>File</string>
+    </property>
+    <addaction name="actionNew" />
+    <addaction name="actionOpen" />
+    <addaction name="actionSaveAs" />
+   </widget>
+   <widget class="QMenu" name="menuEdycja" >
+    <property name="title" >
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo" />
+    <addaction name="actionAddNode" />
+    <addaction name="actionDeleteNode" />
+    <addaction name="actionConnect" />
+    <addaction name="actionSolve" />
+    <addaction name="actionEditValue" />
+   </widget>
+   <widget class="QMenu" name="menuPomoc" >
+    <property name="title" >
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp" />
+   </widget>
+   <addaction name="menuPlik" />
+   <addaction name="menuEdycja" />
+   <addaction name="menuPomoc" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <action name="actionNew" >
+   <property name="text" >
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen" >
+   <property name="text" >
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSaveAs" >
+   <property name="text" >
+    <string>Save as</string>
+   </property>
+  </action>
+  <action name="actionUndo" >
+   <property name="text" >
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionAddNode" >
+   <property name="text" >
+    <string>Add node</string>
+   </property>
+  </action>
+  <action name="actionDeleteNode" >
+   <property name="text" >
+    <string>Delete node</string>
+   </property>
+  </action>
+  <action name="actionSolve" >
+   <property name="text" >
+    <string>Solve</string>
+   </property>
+  </action>
+  <action name="actionHelp" >
+   <property name="text" >
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionConnect" >
+   <property name="text" >
+    <string>Connect</string>
+   </property>
+  </action>
+  <action name="actionEditValue" >
+   <property name="text" >
+    <string>Edit Value</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyQGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>Lib/MyQGraphicsView.h</header>
+   <slots>
+    <signal>rightClick(QMouseEvent*)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>graph</sender>
+   <signal>rightClick(QMouseEvent*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showEditMenu(QMouseEvent*)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>225</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>262</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>newFile()</slot>
+  <slot>openFile()</slot>
+  <slot>saveFileAs()</slot>
+  <slot>undo()</slot>
+  <slot>addNode()</slot>
+  <slot>deleteNode()</slot>
+  <slot>solve()</slot>
+  <slot>help()</slot>
+  <slot>edgeRightClick(int)</slot>
+  <slot>nodeRightClick(int)</slot>
+  <slot>nodeLeftClick(int)</slot>
+  <slot>showEditMenu(QMouseEvent*)</slot>
+  <slot>connect(int)</slot>
+ </slots>
+</ui>
