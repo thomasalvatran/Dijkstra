@@ -1,0 +1,1 @@
+Implementation of Dijkstra Algorithm in Qt.
